@@ -1,0 +1,25 @@
+##############
+- How to use antd Progress component in reactJS app
+- How to show task completed percentage using antd Progress
+- How to show antd line progress
+- How to show antd circular progress
+- How to change antd progress color
+- How to customize antd progress 
+- How to make antd progress active status to show ongoing activity animation
+- How to set antd progress status to success to show success or check mark
+-  How to set antd progress status to exception to show error or cross mark
+- How to show antd progress steps
+#############
+
+import {} from 'antd'
+
+const Progress = () => {
+  
+  return(
+    <>
+      <Progress percent={50} />
+      <Progress percent={50}  type='circle' strokeColor='red' status='success/normal/active/exception' strokeWidth={50}/>
+      <Progress percent={50}  type='line' strokeColor='blue' status='exception' step={3}/>      
+    </>
+  );
+}
