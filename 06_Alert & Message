@@ -35,6 +35,7 @@ const alertMsg = () => {
           type='error'
           message='Login Failed''
           description='There was an Error on Login'
+          closable
         />
       }
        <Form  onFinish={onFinish}>
