@@ -1,0 +1,21 @@
+###############
+- How to use antd DatePicker in reactjs application
+- How to use antd Date RangePicker
+- How to use antd TimePicker components in ReactJS app.
+- How to add picker type to month, year, day, quarter etc. 
+- How to show start date and end date picker using antd date range picker
+- What are the props to disable the picker or disable the dates
+#############
+
+import { DatePicker, timePicker} from 'antd'
+
+const datePicker = () => {
+  
+  return(
+    <>
+      <DatePicker picker='year/month/quarter' />
+      <DatePicker.RangePicker picker='month' />
+      <TimePicker />
+    </>
+  );
+}
