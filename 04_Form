@@ -1,0 +1,38 @@
+############
+-  How to use antd Form component in ReactJS app
+- How to create a form using antd form
+- How to add label on different form fields using Form.Item label prop
+- How to add name to form item so we get its value inside the onFinish function
+- How to use antd Input component inside antd From
+- How to add antd button component inside the antd form
+- How to add submit button inside antd form
+- How to make an antd form field required
+- How to get values of antd form fields in onFinish function
+- How to use different components in ant design form
+##############
+
+import { Form, Input, Button } from 'antd'
+
+const form = () => {
+
+  const onFinish = (e) => {
+    console.log(e);
+  }
+  
+  return(
+    <>
+      <Form  onFinish={onFinish}>
+        <Form.Item label='User Name' name ='username'>
+          <Input placeholder = 'Enter User Name' required></Input>
+        </Form.Item>
+         <Form.Item label='User Password' name ='Password'>
+          <Input placeholder = 'Enter Passwod' required></Input>
+        </Form.Item>
+         <Form.Item>
+          <Button type='primary' htmlType='submit'>Login</Button>
+        </Form.Item>
+      </Form>
+      
+    </>
+  );
+}
