@@ -1,0 +1,30 @@
+ ###########
+  - How to user antd select component in ReactJS app
+  - How to render dropdown options in antd select using Select.Option
+  - How to map over a list to show antd select options
+  - How to add different value and display value into antd select options
+  - How to add placeholder inside antd select
+  - How to make antd select a multi select component using multiple mode prop
+  - How to limit the number of pills or selected values in antd select by showing +1, +2 etc.
+  - How to add search over the antd selection options so user can type and filter down the dropdown values
+  - How to add clear button inside the antd select to clear the selected values
+############
+
+import { Select } from 'antd'
+
+const select = () => {
+  
+  const fruits = [Apple, Banana, Kiwi, Orange, Custard Apple];
+  return(
+    <>
+      <p>Which is Your Favorite Fruit....?
+      <Select placeholder = 'Select Fruit...' style={{ width: '50%'}}> {/* pass prop as mode = 'multiple' for multiple select ; maxTagCount={2} +1,+2 ; allowClear,filterOption, filterSort*/}
+        {                                                                 
+          fruits.map((fruit, index) => {
+            return <Select.Option key={index} value={fruit}>{ fruit }</Select.Option>
+           });
+        }
+      </Select>
+    </>
+  );
+}
