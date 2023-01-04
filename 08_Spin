@@ -1,0 +1,20 @@
+############
+- How to use antd Spin component in ReactJS app
+- How to start spinning or loading for antd Spin
+- How to stop spinning or loading for antd Spin
+- How to use state variable to control antd spin loading or spinning
+- How to add spinning or loading to antd Button component
+- How to show loading or spinning by wrapping the UI inside the antd Spin component
+#########
+
+import { Spin, Button} from 'antd'
+
+const Spin = () => {
+  const[loading, setLoading] = useState(false);
+  return(
+    <>
+    <Spin spinning={loading}></Spin>
+    <Button onclick={() => {setLoading(prevState=> !prevState)}}>Toggle Spin</Button
+    </>
+  );
+}
