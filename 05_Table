@@ -1,0 +1,78 @@
+###############
+- How to use antd table component in React js app 
+- How to use columns prop of antd table
+- How to use datasource props of antd table
+- How to create columns array of objects for antd table
+- How to add different key for antd table columns like title, dataIndex etc.
+- How to create local data source to render inside antd table
+- How to customize antd table rendering
+- How to use custom render of antd table column prop
+- How to render custom custom reactjs components inside antd table cell
+- How to get the whole row or record inside an antd table cell rendering
+ - How to return custom cell value based on datasource record
+- How to add sorting in antd table header
+- How to implement sorter function in antd table column
+###############
+
+import { Table } from 'antd'
+
+const tabel = () => {
+
+  const col = [
+    {
+      Title: 'Name',
+      dataIndex: 'name',
+      key: 'key',
+      reneder: name => {
+      return <a onClick={canAdd}>{name}</a>}
+    },
+    {
+      Title: 'Age',
+      dataIndex: 'age',
+      key: 'key',
+      sorter:(a,b) => a.age - b.age /*FOR Sorting*/
+    },
+    {
+      Title: 'Address',
+      dataIndex: 'address',
+      key: 'key'
+    },
+     {
+      Title: 'Graduated..?',
+      key: 'key',
+      render: payload => {
+        return <p>{payload.age>15? 'True': 'False'}</p>
+      }
+    },
+  ]
+
+  const data = [
+    {
+      Name: 'Name 1',
+      Age: 10,
+      Address: Address1,
+      key:1
+    },
+    {
+      Name: 'Name 2',
+      Age: 20,
+      Address: Address2,
+      key:2
+    },
+    {
+      Name: 'Name 3',
+      Age: 30,
+      Address: Address3,
+      key: 3
+    },
+  ]
+  return(
+    <>
+      <Table
+        columns={col}
+        dataSource={data}
+      >
+      </Table>
+    </>
+  );
+}
