@@ -1,0 +1,34 @@
+################ 
+
+  - How to use ant design Input component in ReactJS app
+  -  How to add placeholder in antd input component
+  - How to limit the number of characters of antd input by using maxLength prop
+  - How to make antd input secure
+  - How to make antd input a password field
+  - How to add prefix and suffix reactjs elements inside antd input
+  - How to add icons inside antd input
+  - How to add clear icon to clear the antd input text using allowClear
+  - How to disable the antd input for user interaction
+  - How to make an antd input a search field by using Input.Search
+ 
+############
+
+import { Input } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
+
+const input = () => {
+
+  return(
+    <>
+      <Input {/*<Input.Search></Input.Search>:: with search field*/}
+        placeholde='name' {/*type='password':: for password field*/}
+        maxLength={10}
+        prefix={<UserOutlined />}
+        allowClear
+        disabled={wePassVarHere}
+      >
+      </Input>
+    </>
+  );
+}
+  
