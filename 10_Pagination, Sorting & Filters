@@ -1,0 +1,81 @@
+###################
+- How to use antd Table in ReactJS
+-  How to populate antd Table component with data fetched from server.
+- How to add pagination in antd Table
+- How to navigate between different antd table pages
+- How to update page sizes, adding callbacks for page and page size changes.
+- How to add sorting on different antd Table columns
+- How to sort antd table data based on user sort actions.
+- How to add filters on different antd Table columns
+- How to filter antd Table data based on user filter actions.
+################
+
+import {Table, } from 'antd'
+import { useState, useEffect } from 'react'
+
+const paginationSortinFilters = () => {
+
+const[loading, setLoading] = useState(false);
+const[dataSource, setDataSource] = useState([]);
+const[page, setPage] = useState(1);
+const[pageSize, setPageSize] = useState(10)
+
+
+useEffect(() => {
+setLoading(true);
+  fetch('https://jsonplaceholder.typicode.com/todos').
+  then(response => response.json()).
+  then(data => {setDataSource(data)}.
+  catch( err => {console.log(err);}).
+  finally( () => {setLoading(false))});
+}, [])
+
+const col = [
+  {
+    key: '1',
+    title: 'ID',
+    dataIndex: 'id',
+  },
+  {
+    key: '2',
+    title: 'User Id',
+    dataIndex: 'userid',
+    sorter: (rec1,rec2) => {
+      return rec1.userid > rec2.userid
+    }
+  },
+  {
+    key: '3',
+    title: 'Status',
+    dataIndex: 'completed',
+    render: (complete) => return{
+    <p> {complete ? 'COMPLETED' : 'IN PROGRESS'} </p>},
+    filters:[
+     { text: 'COMPLETED', value: true},
+     { text: 'IN PROGRESS' , value: false}
+    ],
+    onFilter:(val, rec) => {
+      return record.COMPLETED === value
+    }
+  },
+]
+  
+  return(
+    <>
+      <Table
+        column={col}
+        dataSource={dataSource}
+        loading={loading}
+        pagination={
+          current: page,
+          pageSize: pageSize,
+          onChange:(page, pageSize) => {
+            setPage(page);
+            setPageSize(pageSize)
+          }
+        }
+      >
+      </Table>
+    </>
+  );
+}
