@@ -1,0 +1,46 @@
+#######
+  - How to use antd button component in reactjs app
+  - How to make antd button a primary button
+  - How to make antd button a link
+  - How to ad href to an antd button in reactjs and navigate to external links
+  - How to make antd button block
+  - How to add onClick function on antd button and implement it
+  - How to add loading or spinner on antd button
+  - How to mimic the API call/response behavior and show loading while action is in progress
+  - How to add icon inside antd button
+  - How to change background color of antd button
+  - How to change text color of antd button  
+  ######
+
+
+import 'antd/dist/antd.css'
+import { Button } from 'antd'
+import { useState } from 'react'
+import { PoweroffOutlined } from '@ant-design/icons'
+
+const antButton = ( ) => {
+  const[loading, setloading] = useState( false )
+  const onButtonClick = () => {
+   setLoading(true);
+   
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000)
+  }
+    return(){
+    <>
+    <Button>My First Button</Button>
+    <Button type='link' href='http://www.google.com'>My First Button</Button>
+    <Button type='link'
+            block
+            loading={loading}
+            onClick={onButtonClick}
+            icon={<PoweroffOutlined}
+            style={{color: 'red', backgroundColor: 'white'}}
+    >My First Button</Button>
+    </>
+    }
+}
+       
+       
+       
