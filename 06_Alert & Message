@@ -1,0 +1,53 @@
+############
+- How to use antd Alert component in ReactJS
+- How to use antd Message in ReactJS
+- How to show success massage using antd message
+- How to make the toast message to stay longer than the default time delay
+- How to show error message using antd message 
+- How to show auto hiding messages using antd message
+- How to show feedback on screen with close button
+- How to set type to antd alert
+- How to add type, message and description to antd Alert component
+- How to make antd Alert closable 
+################
+
+import { Form, Input, Button, Alert } from 'antd';
+import { useState } from 'react';
+
+const alertMsg = () => {
+
+  const[showAlert, setShowAlert] = useState(false);
+  
+  const onFinish = (e) => {
+    console.log(e);
+   setTimeout(() => {
+    {/*message.error('Login failed);
+    message.success('Login Success');
+    message.warning('Wrong login');-------Import 'message' from antd-------*/}
+    setShowAlert(true);
+    <Alert />
+   }, 2000)
+  }
+  return(
+    <>
+      { showAlert && 
+        <Alert 
+          type='error'
+          message='Login Failed''
+          description='There was an Error on Login'
+        />
+      }
+       <Form  onFinish={onFinish}>
+        <Form.Item label='User Name' name ='username'>
+          <Input placeholder = 'Enter User Name' required></Input>
+        </Form.Item>
+         <Form.Item label='User Password' name ='Password'>
+          <Input placeholder = 'Enter Passwod' required></Input>
+        </Form.Item>
+         <Form.Item>
+          <Button type='primary' htmlType='submit'>Login</Button>
+        </Form.Item>
+      </Form>
+    </>
+  );
+}
